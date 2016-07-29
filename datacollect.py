@@ -12,6 +12,8 @@ def getApiData(groupName, eventCount):
         eventCount = int(eventCount)
     except:
         print('You entered an invalid number')
+
+    resultDict = {}
     #staticUrl = 'https://api.meetup.com/2/events?key=1074395949437b7e6522f50657f5d2a&group_urlname=DCPython'
     dynUrl = 'https://api.meetup.com/2/events?key=1074395949437b7e6522f50657f5d2a&group_urlname=' + groupName
 
@@ -29,7 +31,8 @@ def getApiData(groupName, eventCount):
         if resultCount < eventCount:
             eventName = i['name']
             yesRsvp = i['yes_rsvp_count']
+            resultDict['event ' + str(resultCount)] = {'name': eventName, 'count': yesRsvp}
             print(eventName + ' - ' + str(yesRsvp))
-
+    print(resultDict)
 
 getApiData(groupName, eventCount)
