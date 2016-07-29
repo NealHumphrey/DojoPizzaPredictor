@@ -1,5 +1,5 @@
 import math
-
+import sys
 
 def how_many(count):
     # Assumptions about consumption
@@ -48,9 +48,10 @@ def how_many(count):
 
     return return_dict
 
-def main():
 
-    meetup_yes_rsvp = 25
+def main(inp):
+
+    meetup_yes_rsvp = inp
     ret = how_many(meetup_yes_rsvp)
 
     print("----------------")
@@ -66,4 +67,5 @@ def main():
     print("Actual leftover beer: 0")
 
 if __name__ == '__main__':
-    main()
+    arg = sys.argv[1]
+    main(arg)
